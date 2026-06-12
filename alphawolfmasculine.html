@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alpha Wolf Masculinity — Reclaim Your Discipline</title>
+<style>
+  :root{
+    --bg: #0a0a0a;
+    --bg-alt: #141414;
+    --line: #2b2b2b;
+    --text: #f5f5f5;
+    --text-dim: #a3a3a3;
+    --red: #e0262c;
+    --red-dim: #8c1418;
+    --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', Helvetica, Arial, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%;display:block;}
+
+  a{color:inherit;}
+
+  .container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(10,10,10,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{
+    font-family:var(--font-display);
+    font-weight:700;
+    letter-spacing:0.12em;
+    font-size:1.25rem;
+    text-transform:uppercase;
+  }
+  .logo span{color:var(--red);}
+  .nav-links{display:none;gap:32px;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.08em;}
+  .nav-links a{text-decoration:none;color:var(--text-dim);transition:color .2s;}
+  .nav-links a:hover{color:var(--text);}
+  @media(min-width:760px){.nav-links{display:flex;}}
+
+  .btn{
+    display:inline-block;
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-weight:600;
+    font-size:0.9rem;
+    padding:14px 32px;
+    border:2px solid var(--red);
+    background:var(--red);
+    color:#0a0a0a;
+    text-decoration:none;
+    transition:background .2s, color .2s, transform .15s;
+  }
+  .btn:hover{background:transparent;color:var(--red);transform:translateY(-2px);}
+  .btn-outline{
+    background:transparent;
+    color:var(--text);
+    border:2px solid var(--line);
+  }
+  .btn-outline:hover{border-color:var(--text);background:var(--text);color:var(--bg);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:120px 0 100px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-50%;
+    right:-20%;
+    width:60%;
+    height:200%;
+    background:radial-gradient(circle, var(--red-dim) 0%, transparent 65%);
+    opacity:0.35;
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    gap:48px;
+  }
+  @media(min-width:900px){
+    .hero-grid{grid-template-columns:1.1fr 0.9fr;align-items:center;}
+  }
+  .eyebrow{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.25em;
+    font-size:0.8rem;
+    color:var(--red);
+    margin-bottom:18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:36px;height:2px;
+    background:var(--red);
+    display:inline-block;
+  }
+  h1{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    font-weight:700;
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.05;
+    letter-spacing:0.01em;
+    margin-bottom:24px;
+  }
+  h1 .accent{color:var(--red);}
+  .hero p.lead{
+    color:var(--text-dim);
+    font-size:1.15rem;
+    max-width:520px;
+    margin-bottom:36px;
+  }
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:16px;}
+
+  .hero-visual{
+    border:1px solid var(--line);
+    background:var(--bg-alt);
+    aspect-ratio:4/5;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-visual::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      repeating-linear-gradient(135deg, transparent 0 18px, rgba(224,38,44,0.08) 18px 19px),
+      linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
+  }
+  .hero-visual .label{
+    position:relative;z-index:1;
+    padding:28px;
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    font-size:0.85rem;
+    color:var(--text-dim);
+    border-top:1px solid var(--line);
+    width:100%;
+  }
+  .hero-visual .label strong{color:var(--text);display:block;font-size:1.4rem;letter-spacing:0.08em;margin-bottom:6px;}
+
+  /* ---------- TRUST BAR ---------- */
+  .trustbar{
+    border-bottom:1px solid var(--line);
+    padding:28px 0;
+  }
+  .trustbar .container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px 48px;
+    justify-content:space-between;
+    color:var(--text-dim);
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.85rem;
+  }
+  .trustbar strong{color:var(--text);font-size:1.1rem;}
+
+  /* ---------- SECTION GENERAL ---------- */
+  section{padding:96px 0;}
+  .section-head{
+    max-width:680px;
+    margin-bottom:64px;
+  }
+  .section-tag{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.25em;
+    font-size:0.8rem;
+    color:var(--red);
+    margin-bottom:14px;
+  }
+  h2{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    font-weight:700;
+    font-size:clamp(2rem, 4vw, 3rem);
+    line-height:1.1;
+  }
+  .section-head p{color:var(--text-dim);margin-top:16px;font-size:1.05rem;}
+
+  /* ---------- FEATURES ---------- */
+  .features{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-alt);}
+  .feature-grid{
+    display:grid;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media(min-width:700px){.feature-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1024px){.feature-grid{grid-template-columns:repeat(4,1fr);}}
+  .feature{
+    background:var(--bg-alt);
+    padding:36px 28px;
+    transition:background .2s;
+  }
+  .feature:hover{background:#1b1b1b;}
+  .feature .num{
+    font-family:var(--font-display);
+    font-size:0.8rem;
+    color:var(--red);
+    letter-spacing:0.2em;
+    margin-bottom:18px;
+    display:block;
+  }
+  .feature h3{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    font-size:1.15rem;
+    letter-spacing:0.04em;
+    margin-bottom:10px;
+  }
+  .feature p{color:var(--text-dim);font-size:0.95rem;}
+
+  /* ---------- BOOK SHOWCASE ---------- */
+  .books{}
+  .book-grid{
+    display:grid;
+    gap:32px;
+  }
+  @media(min-width:760px){.book-grid{grid-template-columns:repeat(3,1fr);}}
+  .book-card{
+    border:1px solid var(--line);
+    background:var(--bg-alt);
+    display:flex;
+    flex-direction:column;
+  }
+  .book-cover{
+    aspect-ratio:3/4;
+    background:linear-gradient(160deg, #1c1c1c 0%, #0a0a0a 70%);
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .book-cover::after{
+    content:"";
+    position:absolute;
+    bottom:0;left:0;right:0;height:6px;
+    background:var(--red);
+  }
+  .book-cover span{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.15em;
+    color:var(--text-dim);
+    font-size:0.95rem;
+    text-align:center;
+    padding:0 24px;
+  }
+  .book-body{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1;}
+  .book-body h3{font-family:var(--font-display);text-transform:uppercase;font-size:1.25rem;letter-spacing:0.03em;}
+  .book-body p{color:var(--text-dim);font-size:0.95rem;flex:1;}
+  .book-price{
+    display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid var(--line);
+    padding-top:16px;
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  .book-price .price{color:var(--red);font-size:1.3rem;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .testi-grid{
+    display:grid;
+    gap:24px;
+  }
+  @media(min-width:760px){.testi-grid{grid-template-columns:repeat(3,1fr);}}
+  .testi-card{
+    border:1px solid var(--line);
+    padding:32px;
+    background:var(--bg);
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .stars{color:var(--red);letter-spacing:0.2em;font-size:1rem;}
+  .testi-card p.quote{color:var(--text);font-size:1rem;flex:1;}
+  .testi-author{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:0.85rem;
+    color:var(--text-dim);
+    border-top:1px solid var(--line);
+    padding-top:14px;
+  }
+  .testi-author strong{color:var(--text);display:block;font-size:0.95rem;margin-bottom:2px;}
+
+  /* ---------- FINAL CTA ---------- */
+  .final-cta{
+    text-align:center;
+    padding:120px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .final-cta::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 50% 100%, var(--red-dim) 0%, transparent 60%);
+    opacity:0.4;
+  }
+  .final-cta .container{position:relative;z-index:1;}
+  .final-cta h2{margin-bottom:18px;}
+  .final-cta p{color:var(--text-dim);max-width:520px;margin:0 auto 36px;font-size:1.05rem;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:56px 0 32px;
+    font-size:0.9rem;
+    color:var(--text-dim);
+  }
+  .footer-grid{
+    display:grid;
+    gap:40px;
+    margin-bottom:40px;
+  }
+  @media(min-width:700px){.footer-grid{grid-template-columns:2fr 1fr 1fr;}}
+  .footer-grid h4{
+    font-family:var(--font-display);
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--text);
+    font-size:0.9rem;
+    margin-bottom:16px;
+  }
+  .footer-grid ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .footer-grid a{text-decoration:none;color:var(--text-dim);transition:color .2s;}
+  .footer-grid a:hover{color:var(--red);}
+  .footer-logo{font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.12em;font-size:1.2rem;color:var(--text);margin-bottom:14px;}
+  .footer-logo span{color:var(--red);}
+  .footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:24px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:12px;
+    font-size:0.8rem;
+    letter-spacing:0.05em;
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--red);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav container">
+    <div class="logo">ALPHA <span>WOLF</span></div>
+    <div class="nav-links">
+      <a href="#features">Why It Works</a>
+      <a href="#books">The Library</a>
+      <a href="#testimonials">Results</a>
+      <a href="#cta">Get Started</a>
+    </div>
+    <a href="#books" class="btn">Shop Ebooks</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">The Pack Doesn't Wait</div>
+      <h1>Build the <span class="accent">discipline</span> of a man who never quits.</h1>
+      <p class="lead">Alpha Wolf is a library of no-fluff ebooks on discipline, confidence, and self-mastery — written for men ready to stop drifting and start leading their own life.</p>
+      <div class="hero-ctas">
+        <a href="#books" class="btn">Browse the Library</a>
+        <a href="#features" class="btn btn-outline">See What's Inside</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="label">
+        <strong>THE ALPHA PROTOCOL</strong>
+        Instant download · Lifetime access · Read on any device
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trustbar">
+  <div class="container">
+    <div><strong>12,000+</strong> Ebooks Downloaded</div>
+    <div><strong>4.8 / 5</strong> Average Reader Rating</div>
+    <div><strong>6</strong> Core Titles in the Library</div>
+    <div><strong>100%</strong> Instant Digital Delivery</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Why Alpha Wolf</div>
+      <h2>Built different. Built for results.</h2>
+      <p>Every title is stripped of filler — direct frameworks you can apply today, not theory you'll forget tomorrow.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="num">01</span>
+        <h3>Brutal Honesty</h3>
+        <p>No motivational fluff. Just the hard truths and systems that actually move the needle.</p>
+      </div>
+      <div class="feature">
+        <span class="num">02</span>
+        <h3>Action-First</h3>
+        <p>Every chapter ends with a protocol — something you do, not just something you read.</p>
+      </div>
+      <div class="feature">
+        <span class="num">03</span>
+        <h3>Instant Access</h3>
+        <p>Download immediately after checkout. PDF and ePub formats for every device.</p>
+      </div>
+      <div class="feature">
+        <span class="num">04</span>
+        <h3>Built to Last</h3>
+        <p>Lifetime access plus free updates whenever a title gets revised.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="books" id="books">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">The Library</div>
+      <h2>Pick your starting point.</h2>
+      <p>Three flagship guides to rebuild discipline, confidence, and energy from the ground up.</p>
+    </div>
+    <div class="book-grid">
+      <div class="book-card">
+        <div class="book-cover"><span>Discipline Protocol</span></div>
+        <div class="book-body">
+          <h3>The Discipline Protocol</h3>
+          <p>A 30-day system to rebuild your habits, mindset, and morning routine from zero willpower to total control.</p>
+          <div class="book-price">
+            <span class="price">₹499</span>
+            <a href="#" class="btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-cover"><span>Unshakable Confidence</span></div>
+        <div class="book-body">
+          <h3>Unshakable Confidence</h3>
+          <p>The psychology of social presence — how to walk into any room and own it without forcing a thing.</p>
+          <div class="book-price">
+            <span class="price">₹599</span>
+            <a href="#" class="btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-cover"><span>The Energy Code</span></div>
+        <div class="book-body">
+          <h3>The Energy Code</h3>
+          <p>Master your focus, drive, and recovery — practical routines for sleep, training, and mental clarity.</p>
+          <div class="book-price">
+            <span class="price">₹549</span>
+            <a href="#" class="btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-tag">Results</div>
+      <h2>Men who took the first step.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The Discipline Protocol rewired my mornings in two weeks. No fluff, just a system that works."</p>
+        <div class="testi-author"><strong>Rohan K.</strong>Software Engineer, Bangalore</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Unshakable Confidence finally explained why I froze in conversations — and how to fix it. Read it twice."</p>
+        <div class="testi-author"><strong>Aravind S.</strong>MBA Student, Hyderabad</div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The Energy Code gave me a training and sleep routine I've actually stuck to for three months straight."</p>
+        <div class="testi-author"><strong>Vikram N.</strong>Founder, Chennai</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="cta">
+  <div class="container">
+    <div class="section-tag" style="display:flex;justify-content:center;">Start Today</div>
+    <h2>Stop reading about it. Start becoming it.</h2>
+    <p>Get instant access to the full Alpha Wolf library and start your first protocol tonight.</p>
+    <a href="#books" class="btn">Get the Full Library</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">ALPHA <span>WOLF</span></div>
+        <p>No-fluff ebooks on discipline, confidence, and self-mastery for men who are done waiting.</p>
+      </div>
+      <div>
+        <h4>Library</h4>
+        <ul>
+          <li><a href="#books">Discipline Protocol</a></li>
+          <li><a href="#books">Unshakable Confidence</a></li>
+          <li><a href="#books">The Energy Code</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Refund Policy</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom" style="padding:0;">
+      <span>© 2026 Alpha Wolf Masculinity. All rights reserved.</span>
+      <span>alphawolfmasculine.shop</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
